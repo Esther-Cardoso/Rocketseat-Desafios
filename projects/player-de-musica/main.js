@@ -8,8 +8,8 @@ const musicas = [
   {
     titulo: 'Smells Like Teen Spirit',
     artista: 'Nirvana',
-    src: 'asset/smells.mp3',
-    img: 'asset/nirvana.png',
+    src: 'assets/smells.mp3',
+    img: 'assets/nirvana.png',
   },
 ];
 
@@ -23,9 +23,43 @@ const tituloMusica = document.querySelector('.descricao h1');
 const nomeArtista = document.querySelector('.descricao p');
 
 const progress = document.querySelector('progress');
-const audio = document.querySelector('audio');
 const tempoTotal = document.querySelector('.tempo-total');
 const tempoParaAcabar = document.querySelector('.tempo-para-acabar');
+
+const audio = document.querySelector('audio');
+let indexMusica = 0;
+renderizarMusica(indexMusica);
+
+prevControl.addEventListener('click', () => {
+  pausarMusica();
+  progress.style.width = '0%';
+  indexMusica--;
+  if (indexMusica < 0) {
+    indexMusica = 1;
+  }
+  renderizarMusica(indexMusica);
+});
+
+nextControl.addEventListener('click', () => {
+  pausarMusica();
+  progress.style.width = '0%';
+  indexMusica++;
+  if (indexMusica > 1) {
+    indexMusica = 0;
+  }
+  renderizarMusica(indexMusica);
+});
+
+function renderizarMusica(index) {
+  audio.setAttribute('src', musicas[index].src);
+  audio.addEventListener('loadeddata', () => {
+    tituloMusica.textContent = musicas[index].titulo;
+    nomeArtista.textContent = musicas[index].artista;
+    imagem.src = musicas[index].img;
+    tempoTotal.textContent = segundosParaMinutos(Math.floor(audio.duration));
+    tempoParaAcabar.textContent = '00:00';
+  });
+}
 
 function tocarMusica() {
   audio.play();
@@ -42,6 +76,20 @@ function pausarMusica() {
 function atualizarBarra() {
   progress.style.width =
     Math.floor((audio.currentTime / audio.duration) * 100) + '%';
+  tempoParaAcabar.textContent = segundosParaMinutos(
+    Math.floor(audio.duration - audio.currentTime),
+  );
+}
+
+function segundosParaMinutos(segundos) {
+  let campoMinutos = Math.floor(segundos / 60);
+  let campoSegundos = segundos % 60;
+  if (campoSegundos < 10) {
+    campoSegundos = '0' + campoSegundos;
+  }
+
+  // return campoMinutos + ':' + campoSegundos;
+  return `0${campoMinutos}:${campoSegundos}`;
 }
 
 playControl.addEventListener('click', tocarMusica);
