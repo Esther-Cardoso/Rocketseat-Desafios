@@ -11,7 +11,12 @@ Gostou da ideia?
 [Clique aqui](https://www.rocketseat.com.br/boracodar/desafios-anteriores) para participar
 
 - [Desafio 01 - Player de música](#day01)
+- [Desafio 02 - Card de produto](#day02)
 
 ## Desafio 01 - #boraCodar um player de música <a name="day01"></a>
 
+## Desafio 02 - #boraCodar um card de produto <a name="day02"></a>
+
 ![Player de músicas](./projects/player-de-musica/img-player-readme.jpeg)
+
+<!-- ![Player de músicas](./projects/card-de-produto/) -->
