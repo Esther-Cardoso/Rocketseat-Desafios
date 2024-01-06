@@ -18,12 +18,22 @@
 
 .image {
   position: relative;
+  width: 450px;
 }
 
-.img360 {
+.img360, .imgX {
   position: absolute;
   right: 30px;
   cursor: pointer;
+}
+
+.imgX {
+  display: none;
+}
+
+.gif {
+  width: 450px;
+  display: none;
 }
 
 .content {
@@ -60,6 +70,12 @@
   margin-top: 20px;
 }
 
+.btn:hover {
+  background: #271A45;
+  color: #D9CDF7;
+  transition: ease-in .3s;
+}
+
 @media (max-width: 950px) {
   .container {
     gap: 40px;
@@ -77,7 +93,7 @@
     text-align: start;
     padding-left: 60px;
   }
-  .imgSofa {
+  .imgSofa, .gif {
     max-width: 400px;
   }
   .content {
@@ -85,7 +101,15 @@
   }
 }
 @media (max-width: 450px) {
-  .imgSofa {
+  body {
+    background: #D9CDF7;
+  }
+  .img360, .imgX {
+    position: absolute;
+    right: 150px;
+    cursor: pointer;
+  }
+  .imgSofa, .gif {
     width: 300px;
   }
   .titulo {
