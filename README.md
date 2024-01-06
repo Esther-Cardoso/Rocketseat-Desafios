@@ -15,8 +15,8 @@ Gostou da ideia?
 
 ## Desafio 01 - #boraCodar um player de música <a name="day01"></a>
 
-## Desafio 02 - #boraCodar um card de produto <a name="day02"></a>
-
 ![Player de músicas](./projects/player-de-musica/img-player-readme.jpeg)
 
-<!-- ![Player de músicas](./projects/card-de-produto/) -->
+## Desafio 02 - #boraCodar um card de produto <a name="day02"></a>
+
+![Card de produto](./projects/card-de-produto/assets/card-produto-readme.jpeg)
